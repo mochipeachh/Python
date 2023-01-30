@@ -1,28 +1,30 @@
 from math import pi, tan, cos
 
 # Barrel height is in metres
-initialBarrelHeight = 1
+initialBarrelHeight = float(input("what is your initial height"))
 
 # Distance is in metres
-horizontalDistance = 0.5
+horizontalDistance = float(input("what is your distance"))
 
 # Gravity is metres per second squared
 gravity = 9.81
 
 # Velocity is metres per second
-velocity = 44
+velocity = float(input("what is your velocity"))
 
 # Angle is in degrees
-angleInDegrees = 80
+angleInDegrees = float(input("what is your angle"))
 
 # Angle conversion from degrees to radians
 angleInRadians = angleInDegrees * (pi/180)
 
-result = initialBarrelHeight + horizontalDistance*tan(angleInRadians) - (gravity*horizontalDistance**2)/(2*(velocity*cos(angleInRadians))**2)
 
-print(result)
+def calculate_maximum_height(start_height, distance, grav, initial_velocity, angle):
+    result = start_height + distance * tan(angle) - (grav * distance ** 2) / (
+                2 * (initial_velocity * cos(angle)) ** 2)
+    print(result)
 
-
+calculate_maximum_height(initialBarrelHeight,horizontalDistance, gravity, velocity, angleInRadians)
 
 
 
